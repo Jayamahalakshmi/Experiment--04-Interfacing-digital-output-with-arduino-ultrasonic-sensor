@@ -1,7 +1,8 @@
 # EXPERIMENT-NO--05-Distance measurement using Ultrasonic sensor
 
 ## AIM: 
-To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
+     
+     To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
  
 ### COMPONENTS REQUIRED:
 1.	ultrasonic sensor module HC-SR04
@@ -56,16 +57,72 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### PROGRAM 
 
+// C++ code
+
+//
+
+int trigger_pin=7;
+
+int echo_pin=5;
+
+long time;
+
+int distance;
+
+void setup()
+
+{
+
+  pinMode(trigger_pin,OUTPUT);
+  
+  pinMode(echo_pin,INPUT);
+  
+  Serial.begin(9600);
+  
+  
+}
+
+
+void loop()
+
+{
+
+  digitalWrite(trigger_pin, LOW);
+  
+  delay(2); 
+  
+  digitalWrite(trigger_pin, HIGH);
+  
+  delay(10); // Wait for 1000 millisecond(s)
+  
+  digitalWrite(trigger_pin, LOW); // Wait for 1000 millisecond(s)
+  
+  time = pulseIn(echo_pin,HIGH);  
+  
+  distance = (time*0.034/2);
+  
+  Serial.print("DIstance = ");
+  
+  Serial.println(distance);
+  
+ delay(10);
+ 
+}
+
 ### Distance vs measurement table 
 
 
 
 
 
+![Screenshot (20)](https://user-images.githubusercontent.com/104053532/170106450-ac732001-6a27-4a85-9bfc-6b2e79273b13.png)
+
 
 
 
 ### RESULTS
+
+     Thus, we have interfaced an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied is verified.
 
 
 
